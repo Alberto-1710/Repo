@@ -34,5 +34,6 @@ Route::put('/tipoAsiento/actualizar/{id}', [TipoAsientoController::class, 'actua
 Route::get('/vuelo/editar/{id}', [VuelosController::class, 'editar'])->name("vuelos.editar");
 Route::get('/vuelo/actualizar/{id}/', [VuelosController::class, 'actualizar'])->name("actualizar.vuelo");
 Route::get('/vuelo/eliminar/{id}', [VuelosController::class, 'eliminar'])->name("vuelos.eliminar");
-Route::put('/vuelo/agregarAsiento/{id}/{fecha}', [Vuelos_AsientosController::class, 'agregarAsiento'])->name("agregar.asiento");
+Route::get('/vuelo/agregarAsiento/{id}', [Vuelos_AsientosController::class, 'agregarAsiento'])->name("agregar.asiento");
+Route::put('/vuelo/agregarAsiento/actualizar/{id}', [Vuelos_AsientosController::class, 'actualizarAsiento'])->name("asiento.actualizar");
 Route::get('/vuelo/verAsiento', [Vuelos_AsientosController::class, 'verAsiento'])->name('ver.asientos');

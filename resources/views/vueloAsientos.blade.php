@@ -13,29 +13,23 @@
         <br>
         <div>
             <h3>Numero de vuelo</h3>
-            <input type="text" value="CM385" readonly>
+            <input type="text"   readonly>
         </div>
         <br>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Numero Vuelo</th>
-                    <th>Fecha Vuelo</th>
                     <th>Id Tipo Asiento</th>
                     <th>Numero Asiento</th>
                 </tr>
             </thead>
             <tbody>
-                <form >
-                    @csrf
-                    <div class="form-group">
-                        <label for="color">Numero Vuelo:</label>
-                        <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{ $buscarVuelos->numeroVuelo }}"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="metros">Fecha Vuelo</label>
-                        <input type="text" class="form-control" name="precio" id="precio" value="{{ $buscarVuelos->fecha}}"/>
-                    </div>
+                @foreach ($ver as $tipo)
+                <tr>   
+                    <td>{{ $tipo->idTipoAsiento}}</td>
+                    <td>{{ $tipo->numeroAsiento }}</td>
+                </tr>
+                @endforeach
 
             </tbody>
         </table>

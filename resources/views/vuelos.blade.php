@@ -36,6 +36,12 @@
                 <td>
                     <a href="{{ route('vuelos.eliminar', $tipo->numeroVuelo)}}">Eliminar</a>
                 </td>
+                <td>
+                    <a href="{{ route('agregar.asiento', $tipo->numeroVuelo)}}">Agregar Asiento</a>
+                </td>
+                <td>
+                    <a href="{{ route('ver.asientos', $tipo->numeroVuelo)}}">Ver Asientos</a>
+                </td>
   
             </tr>
             @endforeach

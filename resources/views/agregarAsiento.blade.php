@@ -14,26 +14,29 @@
             <div class="col-md-6">
                 <h2>Agregar asiento a vuelo</h2>
                 <br>
+                <form action="{{ route('asiento.actualizar', $buscarVuelo->numeroVuelo ) }}" method="POST">
+                @csrf
+                @method('PUT')
                 <div class="form-group">
-                    <label for="metros">N&uacute;mero Vuelo</label>
-                    <input type="text"class="form-control" value = "CM385" readonly/>
+                    <label for="metros">Numero Vuelo</label>
+                    <input type="text"class="form-control" value = "{{ $buscarVuelo->numeroVuelo }}" readonly/>
                 </div>
 
                 <div class="form-group">
                     <label for="metros">Fecha Vuelo</label>
-                    <input type="date"class="form-control" readonly/>
+                    <input class="form-control" value="{{ $buscarVuelo->fechaSalida }}" readonly/>
                 </div>
 
 
                 <form >
                     <div class="form-group">
                         <label for="color">Numero Asiento:</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" name="numeroAsiento" id="numeroAsiento" class="form-control" />
                     </div>
 
                     <div class="form-group">
                         <label for="color">Id Tipo Asiento:</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" name="idTipoAsiento" id="idTipoAsiento" class="form-control" />
                     </div>
                     
                     <br>
@@ -45,5 +48,22 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('miFormulario').addEventListener('submit', function(event) {
+        event.preventDefault(); // Detiene el envío del formulario predeterminado
+        var formData = new FormData(this);
+        
+        fetch(this.action, {
+            method: 'PUT',
+            body: formData
+        })
+        .then(response => {
+            // Manejar la respuesta
+        })
+        .catch(error => {
+            // Manejar errores
+        });
+    });
+</script>
 </body>
 </html>
