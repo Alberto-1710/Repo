@@ -24,17 +24,21 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($vuelo as $nvo )
-            <tr>
-                <td>{{$nvo->$numeroVuelo}}</td>
-                <td>{{$nvo->$origen}}</td>
-                <td>{{$nvo->$destino}}</td>
-                <td>{{$nvo->$fechaSalida}}</td>
-                <td>{{$nvo->$cantidad}}</td>
-
+            @foreach ($vuelos as $tipo)
+            <tr>   
+                <td>{{ $tipo->numeroVuelo}}</td>
+                <td>{{ $tipo->origen}}</td>
+                <td>{{ $tipo->destino }}</td>
+                <td>{{ $tipo->numeroAsientos}}</td>
+                <td>
+                    <a href="{{route('vuelos.editar', $tipo->numeroVuelo)}}">Editar</a>
+                </td>
+                <td>
+                    <a href="{{ route('vuelos.eliminar', $tipo->numeroVuelo)}}">Eliminar</a>
+                </td>
+  
             </tr>
-            @endforeach  
-            
+            @endforeach
         </tbody>
 
     </table>

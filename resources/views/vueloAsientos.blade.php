@@ -19,15 +19,24 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Numero Vuelo</th>
+                    <th>Fecha Vuelo</th>
                     <th>Id Tipo Asiento</th>
                     <th>Numero Asiento</th>
                 </tr>
             </thead>
             <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>34E</td>
-                    </tr>
+                <form >
+                    @csrf
+                    <div class="form-group">
+                        <label for="color">Numero Vuelo:</label>
+                        <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{ $buscarVuelos->numeroVuelo }}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="metros">Fecha Vuelo</label>
+                        <input type="text" class="form-control" name="precio" id="precio" value="{{ $buscarVuelos->fecha}}"/>
+                    </div>
+
             </tbody>
         </table>
         <div>

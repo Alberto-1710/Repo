@@ -14,26 +14,31 @@
             <div class="col-md-6">
                 <h2>Crear Nuevo Vuelo</h2>
                 <br>
-                <form >
+                <form action="{{ route('vuelo.crear') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="color">Numero:</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" name="numeroVuelo" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="metros">Origen</label>
-                        <input type="text"class="form-control"/>
+                        <input type="text" name="origen" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="tipoPropiedad">Destino:</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" name="destino" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoPropiedad">Numero Asientos:</label>
+                        <input type="number" name="numeroAsientos" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="tipoPropiedad">Fecha Vuelo:</label>
-                        <input type="date" class="form-control"/>
+                        <input type="date" name="fechaSalida" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="tipoPropiedad">Cantidad:</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" name="cantidad" class="form-control"/>
                     </div>
 
                     

@@ -14,18 +14,20 @@
             <div class="col-md-6">
                 <h2>Editar Vuelo</h2>
                 <br>
-                <form >
+                <form action="{{ route('actualizar.vuelo', $vuelo->numeroVuelo) }}" >
+                    @csrf
+                    @method('PUT')
                     <div class="form-group">
                         <label for="color">Numero:</label>
-                        <input type="text" class="form-control" readonly/>
+                        <input type="text" class="form-control" value="{{ $vuelo->numeroVuelo }}" readonly/>
                     </div>
                     <div class="form-group">
                         <label for="metros">Origen</label>
-                        <input type="text"class="form-control"/>
+                        <input type="text" name="origen" id="origen" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="tipoPropiedad">Destino:</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" name="destino" id="destino" class="form-control"/>
                     </div>
                     <br>
                     <div class="form-group">
@@ -33,6 +35,23 @@
                         <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </form>
+                <script>
+                        document.getElementById('miFormulario').addEventListener('submit', function(event) {
+                        event.preventDefault(); // Detiene el envío del formulario predeterminado
+                        var formData = new FormData(this);
+                        
+                        fetch(this.action, {
+                            method: 'PUT',
+                            body: formData
+                        })
+                        .then(response => {
+                            // Manejar la respuesta
+                        })
+                        .catch(error => {
+                            // Manejar errores
+                        });
+                    });
+                </script>
             </div>
         </div>
     </div>
